@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./assets/stylesheet.css" />
+    <!-- <a target="_blank" href="https://icons8.com/icon/67607/sun">Sun</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
 </head>
 
 <body>
@@ -21,20 +22,66 @@
                     <input id="search" type="text" placeholder="Search a city..">
                     <button id="submit" type="submit">Search</button>
                 </div>
-                <div class="search-history"></div>
+                <div class="search-history">
+                    <div id="history">
+                        <p>Houston</p>
+                        <p>Austin</p>
+                        <p>Dallas</p>
+                    </div>
+                </div>
             </aside>
 
-            <div id="current-city">
-                <div id="city-name"></div>
-                <div id="current-date"></div>
-                <div id="temp">Temp:</div>
-                <div id="wind">Wind:</div>
-                <div id="humidity">Humidity:</div>
+            <div class="current-city">
+                <div class="row">
+                    <h2 id="city-name">San Antonio</h2>
+                    <h2 id="current-date">(06/16/2024)</h2>
+                    <img src="./assets/images/icons8-sun-100.png">
+                </div>
+                <div class="weather-details">
+                    <h4 id="temp">Temp: 99°F</h4>
+                    <h4 id="wind">Wind: 6 mph</h4>
+                    <h4 id="humidity">Humidity: 35%</h4>
+                </div>
             </div>
 
             <h3>5-Day Forecast:</h3>
-            <div id="5d-forecast"></div>
-            
+            <div class="five-day-forecast">
+                <div class="day1">
+                    <div id="date">06/17/2024</div>
+                    <div id="icon"><img src="./assets/images/icons8-partly-cloudy-day-100.png"></div>
+                    <div id="temperature">Temp: 94°F</div>
+                    <div id="windy">Wind: 22 mph</div>
+                    <div id="hum">Humidity: 40%</div>
+                </div>
+                <div class="day2">
+                    <div id="date">06/18/2024</div>
+                    <div id="icon"><img src="./assets/images/icons8-partly-cloudy-day-100.png"></div>
+                    <div id="temperature">Temp: 94°F</div>
+                    <div id="windy">Wind: 22 mph</div>
+                    <div id="hum">Humidity: 40%</div>
+                </div>
+                <div class="day3">
+                    <div id="date">06/19/2024</div>
+                    <div id="icon"><img src="./assets/images/icons8-rain-100.png"></div>
+                    <div id="temperature">Temp: 94°F</div>
+                    <div id="windy">Wind: 22 mph</div>
+                    <div id="hum">Humidity: 40%</div>
+                </div>
+                <div class="day4">
+                    <div id="date">06/20/2024</div>
+                    <div id="icon"><img src="./assets/images/icons8-rain-100.png"></div>
+                    <div id="temperature">Temp: 94°F</div>
+                    <div id="windy">Wind: 22 mph</div>
+                    <div id="hum">Humidity: 40%</div>
+                </div>
+                <div class="day5">
+                    <div id="date">06/21/2024</div>
+                    <div id="icon"><img src="./assets/images/icons8-rain-100.png"></div>
+                    <div id="temperature">Temp: 94°F</div>
+                    <div id="windy">Wind: 22 mph</div>
+                    <div id="hum">Humidity: 40%</div>
+                </div>
+            </div>
         </div>
     </main>
     <script src="./assets/script.js"></script>

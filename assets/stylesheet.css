@@ -47,12 +47,16 @@ h1 {
     text-align: center;
 }
 
+button{
+    cursor: pointer;
+}
+
 .search-history{
     border-top: 2px solid black;
     width: 20%;
     padding: 10px;
 }
-.search-history p{
+.search-history li{
     display: flex;
     flex-direction: column;
     background-color: gray;
@@ -72,9 +76,10 @@ h1 {
     bottom: 130px;
     left: 400px;
     border: 2px solid black;
+    background-color: lightgray;
 }
 
-.current-city img{
+#icon{
     display: block;
     position: relative;
     top: 10px;
@@ -105,7 +110,7 @@ h3 {
     position: relative;
     display: block;
     left: 390px;
-    top: -170px;
+    top:-60px;
     padding: 10px;
 }
 
@@ -113,7 +118,7 @@ h3 {
 display: flex;
 position: relative;
 justify-content: space-evenly;
-top: -180px;
+top: -60px;
 left: 390px;
 width: 780px;
 
@@ -128,7 +133,22 @@ width: 780px;
     margin: 10px;
 }
 
-#date, #icon, #temperature, #windy, #hum{
+#date1, #icon1, #temp1, #windy1, #hum1{
     margin: 10px;
 }
 
+#date2, #icon2, #temp2, #windy2, #hum2{
+    margin: 10px;
+}
+
+#date3, #icon3, #temp3, #windy3, #hum3{
+    margin: 10px;
+}
+
+#date4, #icon4, #temp4, #windy4, #hum4{
+    margin: 10px;
+}
+
+#date5, #icon5, #temp5, #windy5, #hum5{
+    margin: 10px;
+}

@@ -56,7 +56,7 @@ button{
     width: 20%;
     padding: 10px;
 }
-.search-history li{
+.search-history button{
     display: flex;
     flex-direction: column;
     background-color: gray;
@@ -66,6 +66,7 @@ button{
     border-radius: 5px;
     justify-content: center;
     align-items: center;
+    list-style: none;
 }
 
 .current-city {
@@ -107,18 +108,18 @@ button{
 }
 
 h3 {
-    position: relative;
+    position: absolute;
     display: block;
     left: 390px;
-    top:-60px;
+    top: 300px;
     padding: 10px;
 }
 
 .five-day-forecast{
 display: flex;
-position: relative;
+position: absolute;
 justify-content: space-evenly;
-top: -60px;
+top: 350px;
 left: 390px;
 width: 780px;
 

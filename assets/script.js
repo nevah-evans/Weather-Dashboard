@@ -5,7 +5,7 @@ const searchBtn = document.getElementById('submit');
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
-    // renderSearchHistory();
+    renderSearchHistory();
     renderWeather();
 });
 
@@ -18,42 +18,42 @@ function renderWeather() {
     let lon = localStorage.getItem('longitude');
     let lat = localStorage.getItem('latitude');
 
-const fiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
-fetch(fiveDay)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // console.log(data.city.name);
-        // console.log(data.list[0].main.temp);
-
-
-        const now = dayjs();
-        document.getElementById('current-date').innerHTML = now.format('MM/DD/YYYY');
-
-        for (let i = 0; i < 5; i++) {
-            document.getElementById('date' + (i + 1)).innerHTML = now.add(i + 1, 'd').format('MM/DD/YYYY');
-        }
-        const fiveDayForecast = [];
-        const fiveForecast = data.list.filter(forecast => {
-            const forecastDate = new Date(forecast.dt_txt).getDate();
-            if (!fiveDayForecast.includes(forecastDate)) {
-                return fiveDayForecast.push(forecastDate);
+    const fiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
+    fetch(fiveDay)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        });
+            return response.json();
+        })
+        .then(data => {
+            // console.log(data.city.name);
+            // console.log(data.list[0].main.temp);
 
-        console.log(fiveForecast);
 
-        for (let i = 0; i < fiveForecast.length; i++) {
-            document.getElementById('temperature' + (i + 1)).innerHTML = `Temp: ${(fiveForecast[i].main.temp).toFixed(0)} °F`;
-            document.getElementById('hum' + (i + 1)).innerHTML = `Humidity: ${fiveForecast[i].main.humidity} %`;
-            document.getElementById('windy' + (i + 1)).innerHTML = `Wind: ${(fiveForecast[i].wind.speed).toFixed(0)} mph`;
-            document.getElementById('icon' + (i + 1)).src = ` https://openweathermap.org/img/wn/${fiveForecast[i].weather[0].icon}.png`;
-        }
-    })
+            const now = dayjs();
+            document.getElementById('current-date').innerHTML = now.format('MM/DD/YYYY');
+
+            for (let i = 0; i < 5; i++) {
+                document.getElementById('date' + (i + 1)).innerHTML = now.add(i + 1, 'd').format('MM/DD/YYYY');
+            }
+            const fiveDayForecast = [];
+            const fiveForecast = data.list.filter(forecast => {
+                const forecastDate = new Date(forecast.dt_txt).getDate();
+                if (!fiveDayForecast.includes(forecastDate)) {
+                    return fiveDayForecast.push(forecastDate);
+                }
+            });
+
+            // console.log(fiveForecast);
+
+            for (let i = 0; i < fiveForecast.length; i++) {
+                document.getElementById('temperature' + (i + 1)).innerHTML = `Temp: ${(fiveForecast[i].main.temp).toFixed(0)} °F`;
+                document.getElementById('hum' + (i + 1)).innerHTML = `Humidity: ${fiveForecast[i].main.humidity} %`;
+                document.getElementById('windy' + (i + 1)).innerHTML = `Wind: ${(fiveForecast[i].wind.speed).toFixed(0)} mph`;
+                document.getElementById('icon' + (i + 1)).src = ` https://openweathermap.org/img/wn/${fiveForecast[i].weather[0].icon}.png`;
+            }
+        })
 
 
     const querURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}&units=imperial`;
@@ -92,33 +92,23 @@ fetch(fiveDay)
 
         })
 
+};
 
+const searchHistory = document.querySelector('.search-history')
 
+function renderSearchHistory() {
+
+    const history = localStorage.getItem('city');
+
+    if (history) {
+        const bodyEl = document.createElement('li');
+        const historyBtn = document.createElement('button')
+        historyBtn.append(bodyEl);
+        bodyEl.setAttribute('id', 'history');
+        bodyEl.innerHTML = history;
+        searchHistory.append(historyBtn);
+    }
 };
 
 
-// const searchHistory = document.querySelector('.search-history')
 
-// function renderSearchHistory(){
-// const history = localStorage.getItem('city');
-
-// // searchHistory.innerHTML = "";
-
-// for (let i =0; i< search.length; i++){
-//     // const search = searches[i];
-
-//     // const li = document.createElement('li');
-//     // li.textContent = history;
-//     // li.setAttribute('history', i);
-
-//     // search.append(li);
-//     let search= document.getElementById('history').innerHTML = history;
-//     searchHistory.append(search);
-// }
-
-// };
-
-// function init(){
-//     renderSearchHistory();
-// }
-// init();

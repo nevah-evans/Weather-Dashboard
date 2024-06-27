@@ -21,3 +21,5 @@ N/A
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+![Screenshot 2024-06-25 235158](https://github.com/nevah-evans/Weather-Dashboard/assets/165732847/5b4790f0-de80-4504-8f9c-526c316cffd2)
